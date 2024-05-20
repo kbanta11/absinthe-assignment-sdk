@@ -6,6 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,7 +14,10 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^20.12.12",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
     "axios": "^1.6.8",
+    "eslint": "^9.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }

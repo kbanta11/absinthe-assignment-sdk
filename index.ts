@@ -8,7 +8,7 @@ class PointsClient {
     constructor(apiKey: string, campaignId: string) {
         this.apiKey = apiKey;
         this.campaignId = campaignId;
-        this.baseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://absinthe-assignment-api.vercel.app'
+        this.baseUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://absinthe-assignment-api.vercel.app';
     }
 
     async distribute(eventName: string, pointsData: { points: number, address: string }) {
@@ -24,7 +24,7 @@ class PointsClient {
                 });
             return response.data;
         } catch (e) {
-            throw new Error(`Error distributing points: ${e}`)
+            throw new Error(`Error distributing points: ${e}`);
         }
     }
 
@@ -61,4 +61,4 @@ class PointsClient {
     }
 }
 
-export default PointsClient
+export default PointsClient;
