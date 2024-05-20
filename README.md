@@ -16,48 +16,51 @@ Install the SDK using npm:
 npm install absinthe-sdk
 ```
 
-Usage
-Initialization
-To use the SDK, you need to initialize it with your API key, campaign ID, and the base URL of your Absinthe API.
+## Usage
+### Initialization
+To use the SDK, you need to initialize it with your API key and campaign ID
 
-typescript
-Copy code
-import AbsintheSDK from 'absinthe-sdk';
+```typescript
+import PointsClient from 'absinthe-sdk';
 
-const sdk = new AbsintheSDK('your-api-key', 'your-campaign-id', 'https://your-nextjs-app.vercel.app');
-Distribute Points
+const client = new PointsClient('your-api-key', 'your-campaign-id');
+```
+
+### Distribute Points
 To distribute points to an address based on an event:
 
-typescript
-Copy code
-sdk.distribute('event_name', { points: 100, address: '0x123...' })
+```typescript
+await client.distribute('event_name', { points: 100, address: '0x123...' })
   .then(response => {
     console.log('Points distributed:', response);
   })
   .catch(error => {
     console.error('Error distributing points:', error);
   });
-Get Points
+```
+
+### Get Points
 To retrieve the total points for a specific address:
 
-typescript
-Copy code
-sdk.getPoints('0x123...')
+```typescript
+await client.getPoints('0x123...')
   .then(points => {
     console.log('Points:', points);
   })
   .catch(error => {
     console.error('Error fetching points:', error);
   });
-Get Points by Event
+```
+
+### Get Points by Event
 To retrieve points for a specific address filtered by event name:
 
-typescript
-Copy code
-sdk.getPointsByEvent('0x123...', 'event_name')
+```typescript
+await client.getPointsByEvent('0x123...', 'event_name')
   .then(points => {
     console.log('Points by event:', points);
   })
   .catch(error => {
     console.error('Error fetching points by event:', error);
   });
+```
